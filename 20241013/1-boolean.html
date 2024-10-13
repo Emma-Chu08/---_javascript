@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boolend 布林值</title>
+</head>
+
+<body>
+    <script>
+        a = 100;
+        b = 100;
+        c = 200;
+        str1 = 'AA';
+        str2 = 'AA';
+        str3 = 'BB';
+        strNum = '200';
+
+        console.log(a == b);  //true
+        console.log(a != b);  //false
+
+        console.log(a == c);  //false
+        console.log(a != c);  //true，不等於，使用(!)否定+(=)等於符號
+
+
+        console.log(c == strNum);  //true，因為==是不嚴謹的比較，他不會考慮型別type
+        console.log(c === strNum);  //flase，當使用===是進行完全等於比較，嚴謹的包含考慮型別type
+        console.log(c !== strNum);  //true，當使用!==是進行完全不等於比較，嚴謹的包含考慮型別type
+        /*
+        嚴謹的不等於考量，也就完全不等於，現在要考慮=> 左邊包含型別，是否不等於右邊包含型別
+        200 of number !=='200' of string
+        數字200 完全不等於 字串200
+        為turn
+        */
+
+        console.clear();
+
+        /////////////////////比較，比大小//////////////////
+        d = 100;
+        e = 200;
+        console.log(d > e); //false
+        console.log(d < e); //true
+        console.log(d >= 100); //true
+        console.log(e <= 200); //true
+
+        console.clear();
+
+        ////////////////////複合邏輯，將多個boolean組合起來的結果為何boolean////////////
+        //&& and,  || or
+        /*
+        and，都要trun，結果是turn，只要一個false出現，結果就是false*/
+        console.log(true && false && true); //false
+        console.log(true && true && true); //false
+
+        console.clear();
+
+        /* || or，或者的意思，只要有一個true結果就是true，就結果確定是true */
+        console.log(false || true || false); //true
+        console.log(false || false || false); //false
+
+        //(true || false)&&(false || true);
+        //((true && true) || (false && false)) || false;
+
+    </script>
+</body>
+
+</html>

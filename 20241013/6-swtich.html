@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        switch(variable){
+        case'A':
+        //todo
+        bresk;
+        case'B':
+        //todo
+        bresk;
+        default:
+        //todo
+        bresk;
+        }
+        */
+
+        const lang = 'jp';
+        let msg = null;
+
+        switch (lang) {
+            case 'jp':
+                console.log('jp');
+                msg = '愛洗爹路以呦!';
+                break;
+            case 'kr':
+                console.log('kr');
+                msg = '沙拉黑呦';
+                break;
+            case 'en':
+                console.log('en');
+                msg = '愛老虎呦';
+                break;
+            case 'hk':
+                console.log('hk');
+                msg = '靚女，我好鍾意黎阿';
+                break;
+            case 'tw':
+                console.log('tw');
+                msg = '小姐姐，我好喜歡你~';
+                break;
+            default:
+                msg = '比愛心，鳩咪!';
+                break;//破壞switch，中止這個switch後續工作
+        }
+        console.log(msg);
+        console.clear();
+
+        //會員編號
+        const memberState = 'new'; // old
+
+        switch (memberState) {
+            case 'new':
+                console.log('歡迎使用者，您是第一次使用，是否需要加入會員?');
+                //console.log('請問你需要什麼服務呢?');
+                //break;
+                case 'old':
+                    console.log('請問你需要什麼服務呢?')
+                break;
+        }
+
+    </script>
+</body>
+
+</html>
