@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //exam 產生6個數字[不重複]
+
+        //method 1
+        //------------------
+        let lottoPool = [];//大球池
+        const getBall = [];//選中的球池
+
+        for (let i = 1; i < 50; i++) {
+            lottoPool.push(`${i}`);
+        }//大球池初始化(1)~(49)
+
+        //rand 0 ~ 48 整數為index，用這個index索引找出value
+        const rand = (min, max) => {//隨機整數的機器
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        //共6抽
+        for (let i = 1; i < 7; i++) {
+            const findIdx = rand(0, lottoPool.length - 1);//決定哪個序號，序號換球
+            const findBall = lottoPool[findIdx];//找到球號，複製存為變數
+
+            getBall.push(findBall);//存入選中區
+
+            //清除球池的指定球，利用filter，不要的球回傳false
+            //checkBall為檢查每次球號，findBall為指定球號
+            lottoPool = lottoPool.filter(function (checkBall) {
+                return checkBall !== findBall;
+            });
+        }
+
+        console.log(getBall.sort());
+        /*lottoPool = lottoPool.filter(function (val) {
+            console.log(val, lottoPool[firstIndex], val !== lottoPool[firstIndex]);
+            return val !== lottoPool[firstIndex];
+        });*/
+
+        //method 2
+        //------------------
+
+        let luckyPool = [];
+        let lottoMachine = new Array(49);
+
+        for (let i = 0; i < lottoMachine.length; i++)
+            lottoMachine[i] = String(i + 1).padStart(2, '0');
+
+        for (let i = 0; i < 6; i++) {
+            const findIdx = rand(0, lottoMachine.length - 1);
+
+            //resolve 1,
+            //const gerAry = lottoMachine.splice(findIdx,1);
+            //luckyPool.push(gerAry[0]);
+
+            //resolve 1,preference
+            //luckyPool.push(lottoMachine.splice(findIdx,1));
+
+            //resolve 2
+            //const gerAry = lottoMachine.splice(findIdx,1);
+            //luckyPool=luckyPool.concat(gerAry);
+
+            //resolve 2,preference
+            luckyPool = luckyPool.concat(lottoMachine.splice(findIdx, 1));
+
+        };
+        console.log(luckyPool.sort(), lottoMachine);
+
+        //String(12).padStart(2,'0');
+        //lotto.splice(firstIndex,1);
+
+
+    </script>
+</body>
+
+</html>
