@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">按這裡，由 DOM 觸發 JS</p>
+    <script>
+        const demo = document.querySelector('#demo');
+
+        demo.addEventListener('click', () => {
+            const btn = document.createElement('button');
+            btn.textContent = '按鈕';
+            btn.style.color = 'red';
+
+            document.querySelector('body')(btn);
+            console.log(btn);
+        });
+    </script>
+</body>
+</html>
